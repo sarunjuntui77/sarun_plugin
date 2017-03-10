@@ -2,9 +2,7 @@
 	position: relative;
 	z-index: 2;
 	overflow:hidden;
-	width: 500px;
-	height: 500px;
- }
+}
 .slide{
     position: fixed;
     left: 0;
@@ -15,5 +13,5 @@
 }
 .item{
 	float:left;
-	width: 33.33%;
 }
+/******************************************/

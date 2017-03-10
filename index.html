@@ -3,8 +3,10 @@
 <head>
 	<title></title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.4/numeral.min.js"></script>
 <link rel="stylesheet" type="text/css" href="sarunSlide.css">
 <script src="sarunSlide.js"></script>
+<script src="sarunNumber.js"></script>
 <style type="text/css">
   html,body{
     margin:0;
@@ -15,7 +17,14 @@
   div{
     height: 100%;
   }
-  
+  #frame{
+  width: 500px;
+  height: 500px;
+  }
+  #slide_up{
+  width: 200px;
+  height: 500px;
+  }
 </style>
 </head>
 <body style="overflow-x: hidden;">
@@ -27,11 +36,30 @@
     <div class="item" style="background-color: green"></div>
   </div>
 </div>
-
+<div class="frame" id="slide_up">
+  <div class="slide">
+    <div class="item" style="background-color: black"></div>
+    <div class="item" style="background-color: red"></div>
+    <div class="item" style="background-color: yellow"></div>
+    <div class="item" style="background-color: green"></div>
+    <div class="item" style="background-color: blue"></div>
+    <div class="item" style="background-color: white"></div>
+    <div class="item" style="background-color: black"></div>
+    <div class="item" style="background-color: red"></div>
+    <div class="item" style="background-color: yellow"></div>
+    <div class="item" style="background-color: green"></div>
+    <div class="item" style="background-color: blue"></div>
+    <div class="item" style="background-color: white"></div>
+  </div>
+</div>
+<div >
+  <input type="text" class="num-format">
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
-  $('#frame').sarunSlide(1000);
-
+  $('#frame').sarunSlideX(1000,0);
+  $('#slide_up').sarunSlideY(2000,3000);
+  $('.num-format').numInput(1000);
 });
 </script>
 </body>
