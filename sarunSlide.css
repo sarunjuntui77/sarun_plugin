@@ -1,0 +1,19 @@
+.frame{
+	position: relative;
+	z-index: 2;
+	overflow:hidden;
+	width: 500px;
+	height: 500px;
+ }
+.slide{
+    position: fixed;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+}
+.item{
+	float:left;
+	width: 33.33%;
+}
