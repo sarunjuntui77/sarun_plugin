@@ -39,13 +39,23 @@ $.fn.sarunSlideY= function(time1,time2) {
   var slide = frame.find( ".slide" );
   var item = slide.find( ".item" );
 
+  var up_step = frame.attr('up-step');
+  var show = frame.attr('show');
+
   var size = item.length;
 
+  var item_height = item.css('height');
+  item_height = item_height.replace('px','');
+
+  var full_height = size * item_height;
+  var frame_height = show * item_height;
+
   slide.css('width',(100)+'%');
-  slide.css('height',(200)+'%');
+  slide.css('height',full_height+'%');
 
   item.css('width',(100)+'%');
-  item.css('height',(100/size)+'%');
+
+  frame.css('height',frame_height+'px')
 
    setTimeout(function(){
       work();
@@ -53,19 +63,24 @@ $.fn.sarunSlideY= function(time1,time2) {
 
   function work(){
     slide.animate({
-      top:'-'+(200/size)+'%'
+      top:'-'+(item_height*up_step)+'px'
       },time1,'linear'
       ,function(){
 
+      for (var i = 0; i < up_step; i++) {
+        slide = frame.find( ".slide" );
         item = slide.find( ".item" );
 
         item = $(this).find( ".item" );
         item.first().appendTo(slide);
 
-        slide.css('top','0');
+        
+      }
+      slide.css('top','0');
         setTimeout(function(){
           work();
         },time2);
+        
     });
   }
 

@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="sarunSlide.css">
 <script src="sarunSlide.js"></script>
 <script src="sarunNumber.js"></script>
+<script src="sarunForm.js"></script>
 <style type="text/css">
   html,body{
     margin:0;
@@ -23,12 +24,28 @@
   }
   #slide_up{
   width: 200px;
-  height: 500px;
+  /*height: 1300px;*/
+  }
+  #slide_up .slide .item{
+    height: 20px;
   }
 </style>
 </head>
 <body style="overflow-x: hidden;">
-<div class="frame" id="frame">
+<form id="form1" action="/asdfaf" method="POST" id="form_1" success="1" error="0">
+<input type="text" name="username" class="form_data required" error="Username">
+<input type="password" name="password" class="form_data required" error="Password">
+<input type="submit" >
+</form>
+
+<form id="form12" action="/asdfaf" method="POST" success="1" error="0">
+<input type="text" name="username" class="form_data required" error="Username">
+<input type="text" name="username2" class="form_data required" error="Username2">
+<input type="password" name="password" class="form_data required" error="Password">
+<input type="submit" >
+</form>
+
+<!-- <div class="frame" id="frame">
   <div class="slide">
     <div class="item" style="background-color: black"></div>
     <div class="item" style="background-color: red"></div>
@@ -36,7 +53,7 @@
     <div class="item" style="background-color: green"></div>
   </div>
 </div>
-<div class="frame" id="slide_up">
+<div class="frame" id="slide_up" show="5" up-step="2">
   <div class="slide">
     <div class="item" style="background-color: black"></div>
     <div class="item" style="background-color: red"></div>
@@ -51,15 +68,12 @@
     <div class="item" style="background-color: blue"></div>
     <div class="item" style="background-color: white"></div>
   </div>
-</div>
-<div >
-  <input type="text" class="num-format">
-</div>
+</div> -->
 <script type="text/javascript">
 $(document).ready(function(){
-  $('#frame').sarunSlideX(1000,0);
-  $('#slide_up').sarunSlideY(2000,3000);
-  $('.num-format').numInput(1000);
+  // $('#frame').sarunSlideX(1000,3000);
+  // $('#slide_up').sarunSlideY(500,3000);
+  $('#form12').formSubmitErrorAjax();
 });
 </script>
 </body>
