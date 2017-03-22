@@ -1,9 +1,14 @@
 $.fn.sarunSlideX = function(time1,time2) {
 
 	var frame = $(this);
+  frame.css('position','relative');
+  frame.css('overflow','hidden');
 
 	var slide = frame.find( ".slide" );
+  setCssSlide(slide);
+
 	var item = slide.find( ".item" );
+  item.css('float','left');
 
 	var size = item.length;
 
@@ -35,9 +40,14 @@ $.fn.sarunSlideX = function(time1,time2) {
 $.fn.sarunSlideY= function(time1,time2) {
 
   var frame = $(this);
+  frame.css('position','relative');
+  frame.css('overflow','hidden');
 
   var slide = frame.find( ".slide" );
+  setCssSlide(slide);
+
   var item = slide.find( ".item" );
+  item.css('float','left');
 
   var up_step = frame.attr('up-step');
   var show = frame.attr('show');
@@ -47,14 +57,10 @@ $.fn.sarunSlideY= function(time1,time2) {
   var item_height = item.css('height');
   item_height = item_height.replace('px','');
 
-  var full_height = size * item_height;
   var frame_height = show * item_height;
 
   slide.css('width',(100)+'%');
-  slide.css('height',full_height+'%');
-
   item.css('width',(100)+'%');
-
   frame.css('height',frame_height+'px')
 
    setTimeout(function(){
@@ -84,4 +90,13 @@ $.fn.sarunSlideY= function(time1,time2) {
     });
   }
 
+}
+
+function setCssSlide(slide){
+  slide.css('position','fixed');
+  slide.css('left','0');
+  slide.css('top','0');
+  slide.css('position','absolute');
+  slide.css('z-index','1');
+  slide.css('height','100%');
 }
