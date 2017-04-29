@@ -14,6 +14,7 @@ $.fn.sarunSlideX = function(time1,time2) {
 
 	slide.css('width',(100*size)+'%');
 	item.css('width',(100/size)+'%');
+  item.css('height','100%');
   setTimeout(function(){
   work();
   },time2);

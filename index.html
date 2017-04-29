@@ -28,10 +28,10 @@
 </style>
 </head>
 <body style="overflow-x: hidden;">
-<button onclick="sarunConfirm({head:'Text Head',body:'Text'},function(){
+<!--< button onclick="sarunConfirm({head:'Text Head',body:'Text'},function(){
   alert('xxx');
   });">Click</button>
-<!-- 
+
 <form id="form" action="http://localhost/sc_02/home/test" method="POST" >
 
 <input type="text" name="username" 
@@ -47,7 +47,7 @@
   min-text="Min-Password" required-text="Password">
 <input type="submit" >
 
-</form>
+</form> -->
 
 <div class="frame" id="frame">
   <div class="slide">
@@ -57,7 +57,7 @@
     <div class="item" style="background-color: green"></div>
   </div>
 </div>
-<div class="frame" id="slide_up" show="2" up-step="2">
+<!-- <div class="frame" id="slide_up" show="2" up-step="2">
   <div class="slide">
     <div class="item" style="background-color: black"></div>
     <div class="item" style="background-color: red"></div>
@@ -75,11 +75,11 @@
 </div> -->
 <script type="text/javascript">
 $(document).ready(function(){
-  // $('#frame').sarunSlideX(1000,3000);
-  // $('#slide_up').sarunSlideY(500,3000);
-  // $('#form').formSubmitErrorAjax(function(data){
+  $('#frame').sarunSlideX(1000,3000);
+  $('#slide_up').sarunSlideY(500,3000);
+  $('#form').formSubmitErrorAjax(function(data){
   
-  // });
+  });
   
 });
 </script>
