@@ -1,3 +1,32 @@
+function setCssSlide(slide){
+  slide.css('position','fixed');
+  slide.css('left','0');
+  slide.css('top','0');
+  slide.css('position','absolute');
+  slide.css('z-index','1');
+  slide.css('height','100%');
+}
+function setCssPagingX(paging){
+  paging.css('z-index','1');
+  paging.css('position','absolute');
+  paging.css('width','100%');
+  paging.css('text-align','center');
+  paging.css('bottom','10%');
+}
+function setCssDotX(dot){
+
+  dot.css('background','#fff');
+  dot.css('text-indent','-9999px');
+  dot.css('display','inline-block');
+  dot.css('width','10px');
+  dot.css('height','10px');
+  dot.css('margin','0 5px');
+  dot.css('outline','0');
+  dot.css('-moz-border-radius','5px');
+  dot.css('-webkit-border-radius','5px');
+  dot.css('border-radius','5px');
+  
+}
 $.fn.sarunSlideX = function(time1,time2) {
 
 	var frame = $(this);
@@ -10,6 +39,11 @@ $.fn.sarunSlideX = function(time1,time2) {
 	var item = slide.find( ".item" );
   item.css('float','left');
 
+  var paging = frame.find( ".slide-paging" );
+  var dot = paging.find( "a" );
+  setCssPagingX(paging);
+  setCssDotX(dot);
+
 	var size = item.length;
 
 	slide.css('width',(100*size)+'%');
@@ -19,6 +53,21 @@ $.fn.sarunSlideX = function(time1,time2) {
   work();
   },time2);
 
+  dot.on('click',function(e){
+  e.preventDefault();
+  var target =  $(this).attr('target');
+    $('.frame > .slide').find( ".item" ).each(function(item){
+      if('#'+$(this).attr('id') == target){
+        $(target).insertAfter($('.slide > .item').first());
+        
+        
+      }
+    })
+  });
+
+  function workByClick(index){
+   
+  }
   function work(){
     slide.animate({
       left:'-100%'
@@ -93,11 +142,3 @@ $.fn.sarunSlideY= function(time1,time2) {
 
 }
 
-function setCssSlide(slide){
-  slide.css('position','fixed');
-  slide.css('left','0');
-  slide.css('top','0');
-  slide.css('position','absolute');
-  slide.css('z-index','1');
-  slide.css('height','100%');
-}
